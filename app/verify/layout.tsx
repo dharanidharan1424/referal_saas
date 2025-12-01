@@ -21,7 +21,7 @@ export default async function ProtectedLayout({
             {/* Sidebar */}
             <aside className="w-64 bg-white shadow-md hidden md:block">
                 <div className="p-6">
-                    <h1 className="text-2xl font-bold text-gray-800">GymReferral</h1>
+                    <h1 className="text-2xl font-bold text-gray-850">GymReferral</h1>
                 </div>
                 <nav className="mt-6 px-4 space-y-2">
                     <NavLink href="/dashboard" icon={<LayoutDashboard size={20} />} label="Overview" />
