@@ -88,7 +88,8 @@ export async function POST(req: Request) {
         return NextResponse.json({ success: true, message: "Verification successful" })
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return NextResponse.json({ error: error.errors }, { status: 400 })
+            return NextResponse.json({ error: error.issues }, { status: 400 })
+
         }
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
     }

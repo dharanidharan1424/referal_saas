@@ -65,8 +65,18 @@ export async function POST(req: Request) {
         return NextResponse.json({ code: referralCode.code }, { status: 201 })
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return NextResponse.json({ error: error.errors }, { status: 400 })
+            return NextResponse.json(
+                { error: error.issues },   // ✅ FIXED
+                { status: 400 }
+            )
         }
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
+
+        console.error("Campaign Create Error:", error)
+
+        return NextResponse.json(
+            { error: "Internal Server Error" },
+            { status: 500 }
+        )
     }
+
 }
